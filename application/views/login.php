@@ -25,6 +25,7 @@
 <body class="bg-gradient-primary">
     
     <div class="container">
+        
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -40,20 +41,30 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    
+                                    <?php if($this->session->flashdata('sukses')) : ?>
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong><?= $this->session->flashdata('sukses') ?></strong>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    <?php endif ?>
+                                    
+                                    <form class="user" method="post" >
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="email" name="email" aria-describedby="emailHelp"
-                                                placeholder="Masukkan Email">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="nik" name="nik" value="<?php echo set_value('nik'); ?>"
+                                                placeholder="Masukkan NIK">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" name="password" placeholder="Password">
                                         </div>
                                         
-                                        <a href="<?=base_url('dashboard')?>" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                         <hr>
                                        
                                     </form>
@@ -74,14 +85,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
 
 </body>
 

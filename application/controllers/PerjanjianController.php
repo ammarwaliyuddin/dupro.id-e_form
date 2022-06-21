@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 require FCPATH.'vendor/autoload.php';
 
-class DashboardController extends CI_Controller
+class PerjanjianController extends CI_Controller
 {
 	
 	function __construct(){
@@ -13,7 +13,7 @@ class DashboardController extends CI_Controller
 	}
 	public function index()
 	{
-		$this->load->view('Dashboard/Dashboard');
+		$this->load->view('Dashboard/List_perjanjian');
 	}
 	
 }
