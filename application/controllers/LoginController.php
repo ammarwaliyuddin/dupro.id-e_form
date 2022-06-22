@@ -5,14 +5,26 @@ require FCPATH.'vendor/autoload.php';
 
 class LoginController extends CI_Controller
 {
-	function __construct()
-	{
-		parent::__construct();
-		// $this->load->model("Form_model");
-	}
+	// function __construct()
+	// {
+	// 	parent::__construct();
+	// 	// $this->load->model("Form_model");
+	// }
 	public function index()
 	{
+		
+		$nik = $this->input->post('nik');
+		$password = $this->input->post('password');
+		
+		if(!empty($this->input->post())) {
+			$this->simple_login->login($nik,$password, base_url('dashboard'), base_url('login'));
+		}
+		// End fungsi login
 		$this->load->view('login');
 	}
+	public function logout(){
+		$this->simple_login->logout();
+	}  
+	
 	
 }

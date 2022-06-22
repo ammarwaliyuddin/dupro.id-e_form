@@ -53,4 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'LoginController';
+$route['logout'] = 'LoginController/logout';
 $route['dashboard'] = 'DashboardController';
+$route['perjanjian'] = 'PerjanjianController';
