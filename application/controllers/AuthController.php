@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 require FCPATH.'vendor/autoload.php';
 
-class LoginController extends CI_Controller
+class AuthController extends CI_Controller
 {
 	// function __construct()
 	// {
@@ -20,10 +20,14 @@ class LoginController extends CI_Controller
 			$this->simple_login->login($nik,$password, base_url('dashboard'), base_url('login'));
 		}
 		// End fungsi login
-		$this->load->view('login');
+		$this->load->view('Auth/login');
 	}
 	public function logout(){
 		$this->simple_login->logout();
+	}  
+
+	public function register(){
+		$this->load->view('Auth/register');
 	}  
 	
 	
