@@ -1,4 +1,4 @@
-<?php $this->load->view('layout/header.php') ?>
+<?php $this->load->view('Layout/header.php') ?>
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -333,4 +333,4 @@
 
 
          
-<?php $this->load->view('layout/footer.php') ?>
+<?php $this->load->view('Layout/footer.php') ?>

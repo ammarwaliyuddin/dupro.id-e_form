@@ -28,22 +28,22 @@ class Simple_login {
   * @param string username dari input form
   * @param string password dari input form
   */
-  public function login($nik, $password) {
+  public function login($email, $password) {
 
-      //cek nik dan password
-      $query = $this->CI->db->get_where('users',array('nik'=>$nik,'password' => $password));
+      //cek email dan password
+      $query = $this->CI->db->get_where('users',array('email'=>$email,'password' => $password));
     //   $query = $this->CI->db->get_where('users',array('nik'=>$nik,'password' => md5($password)));
 
       if($query->num_rows() == 1) {
           //ambil data user berdasar nik
-          $row  = $this->CI->db->query('SELECT id_user,nama,level FROM users where nik = "'.$nik.'"');
+          $row  = $this->CI->db->query('SELECT id_user,nama,level FROM users where email = "'.$email.'"');
           $admin     = $row->row();
           $id   = $admin->id_user;
           $nama   = $admin->nama;
           $level   = $admin->level;
 
           //set session user
-          $this->CI->session->set_userdata('nik', $nik);
+          $this->CI->session->set_userdata('email', $email);
           $this->CI->session->set_userdata('nama', $nama);
           $this->CI->session->set_userdata('level', $level);
           $this->CI->session->set_userdata('id_login', uniqid(rand()));
@@ -69,7 +69,7 @@ class Simple_login {
   public function cek_login() {
 
       //cek session username
-      if($this->CI->session->userdata('nik') == '') {
+      if($this->CI->session->userdata('email') == '') {
 
           //set notifikasi
           $this->CI->session->set_flashdata('sukses','Anda belum login');
@@ -88,7 +88,7 @@ class Simple_login {
    * ke halaman login
    */
   public function logout() {
-      $this->CI->session->unset_userdata('nik');
+      $this->CI->session->unset_userdata('email');
       $this->CI->session->unset_userdata('nama');
       $this->CI->session->unset_userdata('level');
       $this->CI->session->unset_userdata('id_login');

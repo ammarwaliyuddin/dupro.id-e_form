@@ -54,8 +54,8 @@
                                     <form class="user" method="post" >
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
-                                                id="nik" name="nik" value="<?php echo set_value('nik'); ?>"
-                                                placeholder="Masukkan NIK">
+                                                id="email" name="email" value="<?php echo set_value('email'); ?>"
+                                                placeholder="Masukkan email">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
