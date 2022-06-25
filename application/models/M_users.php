@@ -11,4 +11,8 @@ class M_users extends CI_Model{
     {
          $this->db->insert('users_data',$data);
     }
+    function keahlian($data)
+    {
+         $this->db->insert('keahlian_users',$data);
+    }
 }

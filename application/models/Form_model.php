@@ -8,6 +8,10 @@ class Form_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
+    public function getAllbyMitra($nik)
+    {
+        return $this->db->get_where($this->_table, ["no_ktp" => $nik])->result();
+    }
     
     public function save($data)
     {

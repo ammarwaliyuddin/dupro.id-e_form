@@ -209,7 +209,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja2" value="fullTIme">
+                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja2" value="fullTime">
                                                         <label class="form-check-label" for="jadwalKerja2">
                                                             Full Time
                                                         </label>
@@ -228,68 +228,68 @@
                                             <div class="col-12">Sebagai Agen Properti Mitra Dupro, keahlian apa yang paling Anda kuasai ? (Boleh centang lebih dari satu)</div>
                                             <div class="col-12">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian1" name="keahlian[komunikasi]" value="1">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian1" name="keahlian[]" value="komunikasi">
                                                     <label class="form-check-label" for="keahlian1">
                                                     Komunikasi Expert Face to Face
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian2" name="keahlian[service]" value="1">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian2" name="keahlian[]" value="service">
                                                     <label class="form-check-label" for="keahlian2">
                                                     Service Excellent (Pelayanan Prima)
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian3" name="keahlian[nego]" value="1">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian3" name="keahlian[]" value="nego">
                                                     <label class="form-check-label" for="keahlian3">
                                                     Negosiasi & Lobby
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian4" name="" value="1">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian4" name="keahlian[]" value="deal">
                                                     <label class="form-check-label" for="keahlian4">
                                                     Deal Maker
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian5" name="" value="1">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian5" name="keahlian[]" value="telemarketing">
                                                     <label class="form-check-label" for="keahlian5">
                                                     Telemarketing (Komunikasi Via Telp)
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian5" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian5">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian6" name="keahlian[]" value="promosi">
+                                                    <label class="form-check-label" for="keahlian6">
                                                     Promosi Online
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian6" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian6">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian7" name="keahlian[]" value="legalitas">
+                                                    <label class="form-check-label" for="keahlian7">
                                                     Legalitas Properti
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian7" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian7">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian8" name="keahlian[]" value="appraisal">
+                                                    <label class="form-check-label" for="keahlian8">
                                                     Appraisal Properti
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian8" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian8">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian9" name="keahlian[]" value="kpr">
+                                                    <label class="form-check-label" for="keahlian9">
                                                     KPR Perbankan
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian9" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian9">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian10" name="keahlian[]" value="pemerintah">
+                                                    <label class="form-check-label" for="keahlian10">
                                                     Info Pengembangan Wilayah/Infrastruktur Pemerintah
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="keahlian10" name="" value="1">
-                                                    <label class="form-check-label" for="keahlian10">
+                                                    <input class="form-check-input" type="checkbox" id="keahlian11" name="keahlian[]" value="lainnya">
+                                                    <label class="form-check-label" for="keahlian11">
                                                     Lainnya
                                                     </label>
                                                     <textarea type="text" name="lainnya" style="width: 100%;"></textarea>
@@ -305,14 +305,14 @@
                                                         <label class="form-check-label" for="sertifikatBNSP1">
                                                             Ya,karena,
                                                         </label>
-                                                        <textarea type="text" name="textSertifikatBNSP" style="width: 100%;"></textarea>
+                                                        <textarea type="text" name="textSertifikatBNSP[ya]" style="width: 100%;"></textarea>
                                                     </div>
                                                     <div class="col-12 form-check ">
                                                         <input class="form-check-input  form-control-user" type="radio" name="sertifikatBNSP" id="sertifikatBNSP2" value="tidak">
                                                         <label class="form-check-label" for="sertifikatBNSP2">
                                                             Tidak,Karena,
                                                         </label>
-                                                        <textarea type="text" name="textSertifikatBNSP" style="width: 100%;"></textarea>
+                                                        <textarea type="text" name="textSertifikatBNSP[tidak]" style="width: 100%;"></textarea>
                                                     </div>
                                                     
                                                 </div>

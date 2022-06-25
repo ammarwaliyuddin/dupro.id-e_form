@@ -42,6 +42,13 @@ class Simple_login {
           $nama   = $admin->nama;
           $level   = $admin->level;
 
+          if($level != 1){
+            $row  = $this->CI->db->query('SELECT nik FROM users_data where email = "'.$email.'"');
+            $result     = $row->row();
+            $nik   = $result->nik;
+            $this->CI->session->set_userdata('nik', $nik);
+          }
+
           //set session user
           $this->CI->session->set_userdata('email', $email);
           $this->CI->session->set_userdata('nama', $nama);
@@ -54,7 +61,7 @@ class Simple_login {
       }else{
 
           //jika tidak ada, set notifikasi dalam flashdata.
-          $this->CI->session->set_flashdata('sukses','NIK atau password anda salah, silakan coba lagi.. ');
+          $this->CI->session->set_flashdata('sukses','Email atau password anda salah');
 
           //redirect ke halaman login
           redirect(base_url('login'));
@@ -79,6 +86,16 @@ class Simple_login {
       }
   }
 
+  public function cek_akses() {
+
+      //cek session username
+      if($this->CI->session->userdata('level') != 1) {
+
+          //alihkan ke halaman login
+          redirect(base_url('404'));
+      }
+  }
+
 //   public function hasperm(){
 
 //   }
@@ -88,12 +105,16 @@ class Simple_login {
    * ke halaman login
    */
   public function logout() {
-      $this->CI->session->unset_userdata('email');
-      $this->CI->session->unset_userdata('nama');
-      $this->CI->session->unset_userdata('level');
-      $this->CI->session->unset_userdata('id_login');
-      $this->CI->session->unset_userdata('id');
-      $this->CI->session->set_flashdata('sukses','Anda berhasil logout');
-      redirect(base_url('login'));
+    //cek session username
+    if($this->CI->session->userdata('nik') != '') {
+        $this->CI->session->unset_userdata('nik');
+    }
+    $this->CI->session->unset_userdata('email');
+    $this->CI->session->unset_userdata('nama');
+    $this->CI->session->unset_userdata('level');
+    $this->CI->session->unset_userdata('id_login');
+    $this->CI->session->unset_userdata('id');
+    $this->CI->session->set_flashdata('sukses','Anda berhasil logout');
+    redirect(base_url('login'));
   }
 }

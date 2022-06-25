@@ -13,4 +13,9 @@ class Welcome extends CI_Controller
 		// $this->simple_login->islogin();
 		$this->load->view('welcome');
 	}
+	public function abort()
+	{
+		// $this->simple_login->islogin();
+		$this->load->view('Auth/404');
+	}
 }

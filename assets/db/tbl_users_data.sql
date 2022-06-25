@@ -12,7 +12,9 @@ CREATE TABLE IF NOT EXISTS `users_data` (
     `handleSurvey` ENUM ('sudah', 'belum', 'sering'), 
     `closingProperti` ENUM ('sudah', 'belum', 'sering'), 
     `kepercayaanMemasarkan` ENUM ('sudah', 'belum'), 
+    `jadwalKerja` ENUM ('partTime', 'fullTime','freelance'), 
     `sertifikatBNSP` ENUM ('Ya', 'Tidak'),     
+    `textSertifikatBNSP` varchar(100),     
     -- FOREIGN KEY (`email`),   
     UNIQUE KEY `email` (`email`)   
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;  

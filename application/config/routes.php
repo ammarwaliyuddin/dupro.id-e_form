@@ -51,9 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
+$route['404'] = 'welcome/abort';
 $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'AuthController';
 $route['logout'] = 'AuthController/logout';
 $route['register'] = 'AuthController/register';
 $route['dashboard'] = 'DashboardController';
 $route['perjanjian'] = 'PerjanjianController';
+$route['mitra'] = 'MitraController';

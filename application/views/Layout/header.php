@@ -62,19 +62,31 @@
 
             <li class="nav-item <?php if(base_url(uri_string()) == base_url('perjanjian')){ echo 'active';}?>">
                 <a class="nav-link " href="<?= base_url('perjanjian'); ?>">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-table"></i>
                     <span>Daftar Perjanjian</span></a>
             </li>
             <?php if($this->session->userdata('level') == 1): ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="charts.html">
-                        <i class="fas fa-fw fa-chart-area"></i>
+                <li class="nav-item <?php if(base_url(uri_string()) == base_url('mitra')){ echo 'active';}?>">
+                    <a class="nav-link" href="<?= base_url('mitra'); ?>">
+                        <i class="fas fa-fw fa-table"></i>
                         <span>Daftar Mitra</span></a>
                 </li>
             <?php endif ?>
 
-            
+            <?php if($this->session->userdata('level') == 1): ?>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
 
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Tambah Data
+                </div>
+                <li class="nav-item <?php if(base_url(uri_string()) == base_url('mitra')){ echo 'active';}?>">
+                    <a class="nav-link" href="<?= base_url('mitra'); ?>">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Tambah Seller</span></a>
+                </li>
+            <?php endif ?>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
