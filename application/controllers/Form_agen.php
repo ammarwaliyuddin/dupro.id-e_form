@@ -14,5 +14,9 @@ class Form_agen extends CI_Controller
 	{
 		$this->load->view('formulir_agen');
 	}
+	public function add_seller()
+	{
+		$this->load->view('Dashboard/add_seller');
+	}
 	
 }

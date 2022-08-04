@@ -81,8 +81,8 @@
                 <div class="sidebar-heading">
                     Tambah Data
                 </div>
-                <li class="nav-item <?php if(base_url(uri_string()) == base_url('mitra')){ echo 'active';}?>">
-                    <a class="nav-link" href="<?= base_url('mitra'); ?>">
+                <li class="nav-item <?php if(base_url(uri_string()) == base_url('add_seller')){ echo 'active';}?>">
+                    <a class="nav-link" href="<?= base_url('add_seller'); ?>">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Tambah Seller</span></a>
                 </li>
