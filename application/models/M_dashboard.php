@@ -16,6 +16,7 @@ class M_dashboard extends CI_Model
     public function nominalPerjanjian()
     {
         $this->db->select_sum('harga');
+        $this->db->where('active',1);
         $query = $this->db->get('data_perjanjian_kerjasama')->row(); 
         return $query->harga;
     }
