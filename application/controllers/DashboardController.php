@@ -9,11 +9,18 @@ class DashboardController extends CI_Controller
 	function __construct(){
 		parent::__construct();
 		$this->simple_login->cek_login();
-		// $this->load->model("Form_model");
+		$this->load->model("M_dashboard");
 	}
 	public function index()
 	{
-		$this->load->view('Dashboard/Dashboard');
+		$data = [
+			'totalPerjanjian' => $this->M_dashboard->totalPerjanjian(),
+			'totalMitra' => $this->M_dashboard->totalMitra(),
+			'nominalPerjanjian' => $this->M_dashboard->nominalPerjanjian()
+
+		];
+		
+		$this->load->view('Dashboard/Dashboard',$data);
 	}
 	
 }

@@ -39,7 +39,7 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Selamat Datang</h1>
                                     </div>
                                     
                                     <?php if($this->session->flashdata('sukses')) : ?>
@@ -63,14 +63,14 @@
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Masuk
                                         </button>
                                         <hr>
                                        
                                     </form>
                                    
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('register'); ?>">Create an Account!</a>
+                                        <a class="small" href="<?= base_url('register'); ?>">Buat Akun Baru ?</a>
                                     </div>
                                 </div>
                             </div>

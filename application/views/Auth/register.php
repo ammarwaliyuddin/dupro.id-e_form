@@ -52,7 +52,7 @@
                                         </div>
                                     <?php endif ?>
                                     
-                                    <form class="user" method="post" action="<?= base_url('register'); ?>" >
+                                    <form class="user" method="post" action="<?= base_url('register'); ?>" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="nama" name="nama" value=""
@@ -318,33 +318,15 @@
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <fieldset class="form-group">
-                                            <div class="row">
-                                                <legend class="col-form-label col-12 pt-0">Upload KTP</legend>
-                                                <div class="col-sm-12">
-                                                    <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                                </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset class="form-group">
-                                            <div class="row">
-                                                <legend class="col-form-label col-12 pt-0">Upload Foto Diri</legend>
-                                                <div class="col-sm-12">
-                                                    <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="customFile">
-                                                    <label class="custom-file-label" for="customFile">Choose file</label>
-                                                </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                       
-
-                                       
+                                        
+                                        <div class="form-group">
+                                            <label for="fotoKtp" class="label-control">Upload KTP</label>
+                                            <input type="file" name="fotoKtp" id="fotoKtp" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fotoDiri" class="label-control">Upload Foto Diri</label>
+                                            <input type="file" name="fotoDiri" id="fotoDiri" class="form-control" required>
+                                        </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Daftar

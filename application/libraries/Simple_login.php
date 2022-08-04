@@ -114,7 +114,7 @@ class Simple_login {
     $this->CI->session->unset_userdata('level');
     $this->CI->session->unset_userdata('id_login');
     $this->CI->session->unset_userdata('id');
-    $this->CI->session->set_flashdata('sukses','Anda berhasil logout');
+    $this->CI->session->set_flashdata('sukses','Anda berhasil Keluar');
     redirect(base_url('login'));
   }
 }
