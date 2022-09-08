@@ -61,3 +61,4 @@ $route['perjanjian'] = 'PerjanjianController';
 $route['mitra'] = 'MitraController';
 $route['detail-mitra'] = 'MitraController/detail_mitra';
 $route['add_seller'] = 'Form_agen/add_seller';
+$route['add_perjanjian'] = 'Form_agen/add_perjanjian';
