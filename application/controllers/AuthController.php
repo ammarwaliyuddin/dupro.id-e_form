@@ -41,8 +41,15 @@ class AuthController extends CI_Controller
 				'password' => $password,
 				'level' => 2
 			]; 
-			
 
+			//cek user sudah terdaftar
+			$hasUser = $this->M_users->hasUser($email);
+			if($hasUser>0){
+				$this->session->set_flashdata('sukses','Akun Sudah Terdaftar');
+				redirect(base_url('register'));
+			}
+			// akhir check
+			
 			//input usersData
 			
 				

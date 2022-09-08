@@ -15,4 +15,10 @@ class M_users extends CI_Model{
     {
          $this->db->insert('keahlian_users',$data);
     }
+    function hasUser($user){
+          $this->db->select('*');
+          $this->db->from('users');
+          $this->db->where('email', $user);
+          return $this->db->count_all_results();
+    }
 }
