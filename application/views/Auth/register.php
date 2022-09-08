@@ -203,19 +203,19 @@
                                                 <legend class="col-form-label col-12 pt-0">Pilih Jadwal Kerja Sebagai Agen Properti Mitra Dupro :</legend>
                                                 <div class="col-sm-10">
                                                     <div class="form-check form-check-inline ">
-                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja1" value="partTime" checked>
+                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja1" value="Part Time" checked>
                                                         <label class="form-check-label" for="jadwalKerja1">
                                                             Part Time
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja2" value="fullTime">
+                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja2" value="Full Time">
                                                         <label class="form-check-label" for="jadwalKerja2">
                                                             Full Time
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja3" value="freelance">
+                                                        <input class="form-check-input  form-control-user" type="radio" name="jadwalKerja" id="jadwalKerja3" value="Freelance">
                                                         <label class="form-check-label" for="jadwalKerja3">
                                                             Freelance
                                                         </label>

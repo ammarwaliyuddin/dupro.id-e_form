@@ -85,6 +85,18 @@ class Simple_login {
           redirect(base_url('login'));
       }
   }
+  public function cek_notlogin() {
+
+      //cek session username
+      if($this->CI->session->userdata('email') != '') {
+
+          //set notifikasi
+          $this->CI->session->set_flashdata('sukses','Anda belum login');
+
+          //alihkan ke halaman login
+          redirect(base_url('dashboard'));
+      }
+  }
 
   public function cek_akses() {
 

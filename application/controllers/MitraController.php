@@ -18,11 +18,24 @@ class MitraController extends CI_Controller
 	public function index()
 	{
 	
-		
 		$result = $this->M_mitra->getAll();
-		
 
 		$this->load->view('Dashboard/List_mitra',["result"=>$result]);
+	}
+
+	public function detail_mitra()
+	{
+		
+		$nik =$this->input->post('nik');
+		$result = $this->M_mitra->getById($nik);
+		$keahlian = $this->M_mitra->keahlian($result[0]->email);
+		$data = array(
+			'result'=>$result[0],
+			'keahlian'=> $keahlian
+		);
+		
+		echo json_encode($data);
+		
 	}
 	
 }
