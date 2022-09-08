@@ -73,18 +73,25 @@
                 </li>
             <?php endif ?>
 
-            <?php if($this->session->userdata('level') == 1): ?>
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Tambah Data
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Tambah Data
+            </div>
+            <?php if($this->session->userdata('level') == 1): ?>
                 <li class="nav-item <?php if(base_url(uri_string()) == base_url('add_seller')){ echo 'active';}?>">
                     <a class="nav-link" href="<?= base_url('add_seller'); ?>">
                         <i class="fas fa-fw fa-cog"></i>
                         <span>Tambah Seller</span></a>
+                </li>
+            <?php endif ?>
+            <?php if($this->session->userdata('level') == 2): ?>
+                <li class="nav-item <?php if(base_url(uri_string()) == base_url('add_perjanjian')){ echo 'active';}?>">
+                    <a class="nav-link" href="<?= base_url('add_perjanjian'); ?>">
+                        <i class="fas fa-fw fa-cog"></i>
+                        <span>Perjanjian Kerjasama</span></a>
                 </li>
             <?php endif ?>
             <!-- Divider -->

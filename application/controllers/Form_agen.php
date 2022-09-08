@@ -18,5 +18,9 @@ class Form_agen extends CI_Controller
 	{
 		$this->load->view('Dashboard/add_seller');
 	}
+	public function add_perjanjian()
+	{
+		$this->load->view('Dashboard/add_perjanjian');
+	}
 	
 }
