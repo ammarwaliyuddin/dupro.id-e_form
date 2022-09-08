@@ -59,4 +59,5 @@ $route['register'] = 'AuthController/register';
 $route['dashboard'] = 'DashboardController';
 $route['perjanjian'] = 'PerjanjianController';
 $route['mitra'] = 'MitraController';
+$route['detail-mitra'] = 'MitraController/detail_mitra';
 $route['add_seller'] = 'Form_agen/add_seller';

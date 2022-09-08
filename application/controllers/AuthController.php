@@ -12,7 +12,7 @@ class AuthController extends CI_Controller
 	}
 	public function index()
 	{
-		
+		$this->simple_login->cek_notlogin();
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
 		
@@ -27,7 +27,7 @@ class AuthController extends CI_Controller
 	}  
 
 	public function register(){
-		// $users ='ap';
+		$this->simple_login->cek_notlogin();
 		if(!empty($this->input->post())) {
 			
 			$nama = $this->input->post('nama');
