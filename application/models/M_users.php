@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_users extends CI_Model{
 
+    function get_user($email){
+          $query = $this->db->from('users_data');
+          $query = $this->db->where('email', $email);
+          $query = $this->db->get()->result();
+          return $query[0];
+    }
+
     function daftar($data)
     {
          $this->db->insert('users',$data);

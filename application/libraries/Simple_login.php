@@ -108,9 +108,7 @@ class Simple_login {
       }
   }
 
-//   public function hasperm(){
-
-//   }
+  
 
   /**
    * Hapus session, lalu set notifikasi kemudian di alihkan

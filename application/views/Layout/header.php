@@ -20,6 +20,13 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/vendor/datatables/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
+    <style>
+        .btn-blue {
+            color: rgba(255,255,255);
+            border-color: rgba(28,63,170);
+            background-color: rgba(28,63,170);
+        }
+    </style>
 
 </head>
 

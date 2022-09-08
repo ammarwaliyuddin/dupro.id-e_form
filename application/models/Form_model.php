@@ -6,11 +6,11 @@ class Form_model extends CI_Model
 
     public function getAll()
     {
-        return $this->db->get_where($this->_table, ["active" => 1])->result();
+        return $this->db->get_where($this->_table, ["deleted_at" => null])->result();
     }
     public function getAllbyMitra($nik)
     {
-        return $this->db->get_where($this->_table, ["no_ktp" => $nik])->result();
+        return $this->db->get_where($this->_table, ["active" => 1,"deleted_at" => null,"no_ktp" => $nik])->result();
     }
     
     public function save($data)
@@ -19,10 +19,14 @@ class Form_model extends CI_Model
     }
 
 
-    public function getById($id)
+    public function getById($id,$nama_pemilik=null)
     {
-        // var_dump($id);
-        return $this->db->get_where($this->_table, ["no_ktp" => $id])->row();
+        if(empty($nama_pemilik)){
+            return $this->db->get_where($this->_table, ["no_ktp" => $id])->row();
+        }else{
+            return $this->db->get_where($this->_table, ["no_ktp" => $id,"nama_pemilik"=>$nama_pemilik])->row();
+
+        }
     }
 
 

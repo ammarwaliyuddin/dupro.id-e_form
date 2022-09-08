@@ -47,40 +47,44 @@
                                  <input type="hidden" value="2" name="cetak">
                                 <div class="form-group">
                                     <label for="nama" class="label-control">Nama</label>
-                                    <input type="text" name="nama" id="nama" class="form-control">
+                                    <input type="text" name="nama" id="nama" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama_pemilik" class="label-control">Nama Pemilik Properti</label>
+                                    <input type="text" name="nama_pemilik" id="nama_pemilik" class="form-control" required>
                                 </div>
                 
                                 <div class="form-group">
                                     <label for="alamat" class="label-control">Alamat</label>
-                                    <input type="text" name="alamat" id="alamat" class="form-control">
+                                    <input type="text" name="alamat" id="alamat" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="no_ktp" class="label-control">Nomor KTP</label>
-                                    <input type="number" name="no_ktp" id="no_ktp" class="form-control">
+                                    <input type="number" name="no_ktp" id="no_ktp" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="no_telp" class="label-control">Nomor Telp</label>
-                                    <input type="number" name="no_telp" id="no_telp" class="form-control">
+                                    <input type="number" name="no_telp" id="no_telp" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="Harga" class="label-control">Harga</label>
-                                    <input type="number" name="Harga" id="Harga" class="form-control">
+                                    <input type="number" name="Harga" id="Harga" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="komisi" class="label-control">Pembagian Komisi jika terjual <span style="font-size: 12px;"> (dalam % atau sejumlah nominal)</span></label>
-                                    <input type="number" name="komisi" id="komisi" class="form-control">
+                                    <input type="number" name="komisi" id="komisi" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="detail" class="label-control">Detail</label>
-                                    <textarea name="detail"  class="form-control" id="detail" cols="20" rows="10"></textarea>
+                                    <textarea name="detail"  class="form-control" id="detail" cols="20" rows="10" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="ktp" class="label-control">Upload KTP</label>
-                                    <input type="file" name="ktp" id="ktp" class="form-control">
+                                    <input type="file" name="ktp" id="ktp" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="surat" class="label-control">Surat Legal Property</label>
-                                    <input type="file" name="surat" id="surat" class="form-control">
+                                    <input type="file" name="surat" id="surat" class="form-control" required>
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" onclick="check()" class="form-check-input" id="setujui">

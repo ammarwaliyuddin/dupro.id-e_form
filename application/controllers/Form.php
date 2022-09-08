@@ -12,21 +12,25 @@ class Form extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model("Form_model");
+		$this->load->model("M_users");
 	}
 	public function index()
 	{
 		$this->load->view('formulir');
 	}
-	public function cetak()
+	public function cetak($cetak,$data,$nama_pemilik=null)
 	{
-		$cetak = $this->uri->segment('3');
-		$data = $this->uri->segment('4');
-
+		
 		date_default_timezone_set('Asia/Jakarta');
         $tanggal = date('Y-m-d');
 		$tgl = $this->tanggal_indo($tanggal, true);
-		$result = $this->Form_model->getById($data);
+		if(empty($nama_pemilik)){
+			$result = $this->Form_model->getById($data);
+		}else{
 
+			$result = $this->Form_model->getById($data,urldecode($nama_pemilik));
+		}
+		
 		switch($cetak){
 			case '1':
 				$narasi_pertama = 'Dengan ini sepakat untuk melakukan perjanjian kerjasama jasa pemasaran properti
@@ -80,6 +84,7 @@ class Form extends CI_Controller
 		$mpdf->Output();
 		// $this->load->view('cetak',$data);	
 	}
+
 	public function add(){
 		$nama = $this->input->post('nama');
 		$alamat = $this->input->post('alamat');
@@ -230,6 +235,85 @@ class Form extends CI_Controller
         // };
         redirect(base_url("form/cetak/".$cetak."/".$no_ktp.""));
 
+
+	}
+
+	public function add_with_agen_registered(){
+		$nama = $this->session->userdata('nama');
+		$email = $this->session->userdata('email');
+		$data_user = $this->M_users->get_user($email);
+		
+		
+		$alamat = $data_user->domisili;
+		$no_ktp = $data_user->nik;
+		$no_telp = $data_user->noTelp;
+		$harga = $this->input->post('Harga');
+		$komisi = $this->input->post('komisi');
+		$detail = $this->input->post('detail');
+		$cetak = $this->input->post('cetak');
+		$nama_pemilik =$this->input->post('nama_pemilik');
+	
+		$postsurat = $_FILES['surat']['name'];
+		$PecahStrsurat = explode(".", $postsurat);
+		$typesurat = $PecahStrsurat[count($PecahStrsurat)-1];
+		
+
+		$nama_fixsurat = $no_ktp.'_surat_'.str_replace(" ","",$nama_pemilik).'.'.$typesurat;
+
+		date_default_timezone_set('Asia/Jakarta');
+        $tanggal = date('Y-m-d h:i:sa');
+		
+		$this->load->library('upload'); 
+
+		//TTTDDDD
+		if(!empty($_FILES['surat']['name'])){
+			// Set preference ttd'
+
+			$configs['upload_path'] = './assets/ktp'; 
+			$configs['allowed_types'] = 'jpg|jpeg|png|gif'; 
+			$configs['max_size'] = '10000'; // max_size in kb 
+			$configs['file_name'] = $nama_fixsurat;
+			// Load upload library 
+
+			// $this->load->library('upload'); 
+			$this->upload->initialize($configs);
+
+			// File upload
+			if ( !$this->upload->do_upload('surat')){
+				$error = array('error' => $this->upload->display_errors());
+				$this->session->set_flashdata('error', $error['error']);
+				
+				redirect(base_url('add_perjanjian'));
+			}else{
+				$surat = $nama_fixsurat;
+				
+			}
+		
+		}
+
+		else{
+			$surat = $this->input->post('surat');	
+		}
+
+		$data = [
+            'nama' => $nama,
+            'alamat' => $alamat,
+            'no_ktp' => $no_ktp,
+            'no_telp' => $no_telp,
+            'harga' => $harga,
+            'pembagian_komisi' => $komisi,
+            'detail' => $detail,
+            'ktp' => $data_user->fotoKtp,
+            'surat_legal' => $surat,
+			'insert_tanggal'=>$tanggal,
+			'update_tanggal' =>$tanggal,
+			'nama_pemilik' =>$nama_pemilik,
+			'konfirmasi' => 'N',
+			'type_perjanjian'=> $cetak
+        ]; 
+		$this->Form_model->save($data);
+		$this->session->set_flashdata('sukses', 'Tambah Data Berhasil');
+        redirect(base_url("perjanjian"));
 
 	}
 
