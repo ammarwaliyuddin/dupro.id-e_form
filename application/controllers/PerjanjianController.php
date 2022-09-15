@@ -23,7 +23,15 @@ class PerjanjianController extends CI_Controller
 
 		
 		$this->load->view('Dashboard/List_perjanjian',["result"=>$result]);
-		// $this->load->view('Dashboard/List_perjanjian');
+	}
+
+	public function activated(){
+		$id =$this->input->post('id');
+		$is_checked =$this->input->post('is_checked');
+
+		$result = $this->Form_model->activation($id,$is_checked);
+		echo $result;
+		
 	}
 	
 }

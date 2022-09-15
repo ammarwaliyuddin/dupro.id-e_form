@@ -28,6 +28,16 @@ class Form_model extends CI_Model
 
         }
     }
+    public function activation($id,$is_checked)
+    {
+        $_is_checked = ($is_checked=="true")?1:0;
+        
+        $data = array( 
+            'active'	=>  $_is_checked 
+        );
+        $this->db->where('id', $id);
+        return $this->db->update($this->_table, $data);
+    }
 
 
 }

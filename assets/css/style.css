@@ -1,0 +1,52 @@
+.btn-blue {
+    color: rgba(255,255,255);
+    border-color: rgba(28,63,170);
+    background-color: rgba(28,63,170);
+}
+
+/* switch button custom */
+
+.switch{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    display:none;
+}
+
+.s_label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+.s_label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.switch:checked + .s_label {
+    background: #0F3460;
+}
+
+.switch:checked + .s_label:after {
+
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+  
+.s_label:active:after {
+    width: 30px;
+}
+/* END:switch button custom */

@@ -58,6 +58,7 @@ $route['logout'] = 'AuthController/logout';
 $route['register'] = 'AuthController/register';
 $route['dashboard'] = 'DashboardController';
 $route['perjanjian'] = 'PerjanjianController';
+$route['perjanjian-activated'] = 'PerjanjianController/activated';
 $route['mitra'] = 'MitraController';
 $route['detail-mitra'] = 'MitraController/detail_mitra';
 $route['add_seller'] = 'Form_agen/add_seller';

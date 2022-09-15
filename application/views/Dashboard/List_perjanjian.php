@@ -56,7 +56,9 @@
                                 }?></td>
                             <?php if($this->session->userdata('level') == 1): ?>
                                 <td>
-                                    <input type="checkbox" class="myCheck"  <?php if($item->active ==1){echo "checked";} ?>>
+                                    <input type="checkbox" class="switch" value="<?= $item->id; ?>" id="switch<?=$no;?>" <?php if($item->active ==1){echo "checked";} ?>/>
+                                    <label class="s_label" for="switch<?=$no;?>">Toggle</label> 
+                                    <!-- <input type="checkbox" class="myCheck"  > -->
                                     <!-- <p id="text" style="display:none" >Checkbox is CHECKED!</p> -->
                                 </td>
                             <?php else: ?>
@@ -78,13 +80,48 @@
     <!-- /.container-fluid -->
 
 <?php $this->load->view('Layout/footer.php') ?>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-$(".myCheck").on('change',function() {
-    console.log(this.checked)
-    if(this.checked) {
-      // checkbox is checked
-    }
+
+$(document).ready(function(){
+   $('.switch').on('click', function() {
+		checked =$(this)[0].checked
+        id=$(this).val()
+        console.log(checked,id)
+
+        const nik = $(this).data('nik')
+           $.ajax({
+                type : "POST",
+                url  : "<?= base_url('perjanjian-activated')?>",
+                dataType : "JSON",
+                data : {id:id,is_checked : checked },
+                success: function(data){
+                    if(data){
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'success',
+                            title: 'Data Tersimpan',
+                            showConfirmButton: false,
+                            timer: 1200
+                        })
+                        
+                    }else{
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'error',
+                            title: 'Data Tidak Tersimpan',
+                            showConfirmButton: false,
+                            timer: 1200
+                        })
+                        
+                    }
+                }
+            })
+     
+	});
 });
+
+
 </script>
 
             
