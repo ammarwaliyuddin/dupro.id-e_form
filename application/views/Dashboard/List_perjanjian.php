@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Daftar Perjanjian</h1>
-        <p class="mb-4">Berisi Daftar Perjanjian dari Client Mitra.</p>
+        <p class="mb-4">Berisi Daftar Perjanjian dari Mitra.</p>
         <?php if($this->session->flashdata('sukses')) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong><?= $this->session->flashdata('sukses') ?></strong>
@@ -17,8 +17,11 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <!-- <h6 class="m-0 font-weight-bold text-primary">List Perjanjian</h6> -->
-                <a href="<?= base_url('add_perjanjian') ?>" class="btn btn-primary ">Tambah Perjanjian</a>
+                <?php if($this->session->userdata('level') == 1): ?>
+                    <h6 class="m-0 font-weight-bold text-primary">List Perjanjian</h6>
+                <?php else: ?>
+                    <a href="<?= base_url('add_perjanjian') ?>" class="btn btn-primary ">Tambah Perjanjian</a>
+                <?php endif ?>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -58,8 +61,6 @@
                                 <td>
                                     <input type="checkbox" class="switch" value="<?= $item->id; ?>" id="switch<?=$no;?>" <?php if($item->active ==1){echo "checked";} ?>/>
                                     <label class="s_label" for="switch<?=$no;?>">Toggle</label> 
-                                    <!-- <input type="checkbox" class="myCheck"  > -->
-                                    <!-- <p id="text" style="display:none" >Checkbox is CHECKED!</p> -->
                                 </td>
                             <?php else: ?>
                                 <td><?= $item->detail ?></td>
@@ -84,7 +85,7 @@
 <script>
 
 $(document).ready(function(){
-   $('.switch').on('click', function() {
+   $('#dataTable').on('click','.switch', function() {
 		checked =$(this)[0].checked
         id=$(this).val()
         console.log(checked,id)

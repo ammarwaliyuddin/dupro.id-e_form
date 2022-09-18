@@ -106,12 +106,12 @@
 				<tr>
 					<td style="width: 20%">Alamat</td>
 					<td style="width: 5%">:</td>
-					<td>PG Office Center (Jl. P. Nyak makam lambhuk) B.Aceh</td>
+					<td>PT Dupro Niaga Investama (Jl. P. Nyak makam lambhuk) B.Aceh</td>
 				</tr>
 				<tr>
 					<td style="width: 20%">Jabatan</td>
 					<td style="width: 5%">:</td>
-					<td>Marketing Associate (MA)</td>
+					<td>General Manager</td>
 				</tr>
 				<tr>
 					<td colspan="3" class="pt-1">Untuk memasarkan penjualan properti yaitu </td>
@@ -130,13 +130,26 @@
 					<td colspan="3">Platform dan Agensi Fee sebesar <span class="font-weight-bold">
 						<?php
 					if(strlen($result->pembagian_komisi)>2){
-						echo 'Rp.'.$result->pembagian_komisi;
+						echo 'Rp.'.number_format($result->pembagian_komisi,2,",",".");;
 					}else{
 						echo $result->pembagian_komisi.'%';
 					}?></span> <?= $narasi_ketiga; ?></td>
 
-					
-
+				</tr>
+				<tr>
+					<td colspan="3">
+						<span>Pembayaran Platform dan Agency Fee ditransfer ke  BSI </span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<span>a.n PT DUPRO NIAGA INVESTAMA</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+					<span>NO REK. 7206904008</span>
+					</td>
 				</tr>
 				<tr>
 					<td style="width: 20%" class="font-weight-bold" class="pt-1">Terlampir : </td>
