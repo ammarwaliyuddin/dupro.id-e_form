@@ -66,7 +66,7 @@
                                 <td><?= $item->detail ?></td>
                             <?php endif ?>
                             
-                            <td><a target="_blank" href="<?= base_url("form/cetak/".$item->type_perjanjian."/".$item->no_ktp."/".$pemilik."") ?>" class="btn btn-primary btn-sm">Lihat</a></td>
+                            <td><a target="_blank" href="<?= base_url("form/cetak/".$item->type_perjanjian."/".$item->id_perjanjian."") ?>" class="btn btn-primary btn-sm">Lihat</a></td>
                             </tr>
                             <?php endforeach?>
                             

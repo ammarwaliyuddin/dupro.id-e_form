@@ -19,14 +19,14 @@ class Form_model extends CI_Model
     }
 
 
-    public function getById($id,$nama_pemilik=null)
+    public function getById($idPerjanjian)
     {
-        if(empty($nama_pemilik)){
-            return $this->db->get_where($this->_table, ["no_ktp" => $id])->row();
-        }else{
-            return $this->db->get_where($this->_table, ["no_ktp" => $id,"nama_pemilik"=>$nama_pemilik])->row();
+        // if(empty($nama_pemilik)){
+        return $this->db->get_where($this->_table, ["id_perjanjian" => $idPerjanjian])->row();
+        // }else{
+        //     return $this->db->get_where($this->_table, ["no_ktp" => $id,"nama_pemilik"=>$nama_pemilik])->row();
 
-        }
+        // }
     }
     public function activation($id,$is_checked)
     {
@@ -37,6 +37,27 @@ class Form_model extends CI_Model
         );
         $this->db->where('id', $id);
         return $this->db->update($this->_table, $data);
+    }
+
+    public function createIdPerjanjian($no_ktp){
+        $query = $this->db->select('*');
+        $query = $this->db->from($this->_table);
+        $query = $this->db->where('no_ktp',$no_ktp);
+        $query = $this->db->order_by('id','desc');
+        $query = $this->db->get()->result();
+        if (count($query)==0){
+            $idPerjanjian = $no_ktp.'001';
+        }else{
+            // $query[0]->$idPerjanjian;
+            $_idPerjanjian = str_split($query[0]->id_perjanjian);
+            $lastNumber = $_idPerjanjian[16].$_idPerjanjian[17].$_idPerjanjian[18];
+            $_idPerjanjian = $lastNumber + 1;
+            $_idPerjanjian = sprintf("%03d",$_idPerjanjian);
+            $idPerjanjian = $no_ktp.$_idPerjanjian;
+            
+        }
+        
+        return $idPerjanjian;
     }
 
 

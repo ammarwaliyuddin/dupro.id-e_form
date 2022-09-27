@@ -18,18 +18,14 @@ class Form extends CI_Controller
 	{
 		$this->load->view('formulir');
 	}
-	public function cetak($cetak,$data,$nama_pemilik=null)
+	public function cetak($cetak,$idPerjanjian)
 	{
 		
 		date_default_timezone_set('Asia/Jakarta');
         $tanggal = date('Y-m-d');
 		$tgl = $this->tanggal_indo($tanggal, true);
-		if(empty($nama_pemilik)){
-			$result = $this->Form_model->getById($data);
-		}else{
-
-			$result = $this->Form_model->getById($data,urldecode($nama_pemilik));
-		}
+		
+		$result = $this->Form_model->getById($idPerjanjian);
 		
 		switch($cetak){
 			case '1':
@@ -96,6 +92,7 @@ class Form extends CI_Controller
 		$cetak = $this->input->post('cetak');
 		$nama_pemilik = (!empty($this->input->post('nama_pemilik'))) ? $this->input->post('nama_pemilik') : NULL;
 
+		$idPerjanjian = $this->Form_model->createIdPerjanjian($no_ktp);
 		$post = $_FILES['ktp']['name'];
 		$postsurat = $_FILES['surat']['name'];
 
@@ -107,7 +104,7 @@ class Form extends CI_Controller
 		
 
 		$nama_fix = $no_ktp.'.'.$type;
-		$nama_fixsurat = $no_ktp.'_surat.'.$typesurat;
+		$nama_fixsurat = $idPerjanjian.'_surat.'.$typesurat;
 
 		date_default_timezone_set('Asia/Jakarta');
         $tanggal = date('Y-m-d h:i:sa');
@@ -152,9 +149,6 @@ class Form extends CI_Controller
 				
 			}else{
 				$ktp = $nama_fix;
-				// if( $this->input->post('foto_default') != 'default.jpg'){
-				// 	unlink("assets/users/foto/".$this->input->post('foto_default'));
-				// }
 				
 			}
 		
@@ -211,6 +205,7 @@ class Form extends CI_Controller
 		}
 
 		$data = [
+			'id_perjanjian'=>$idPerjanjian,
             'nama' => $nama,
 			'nama_pemilik' => $nama_pemilik,
             'alamat' => $alamat,
@@ -233,7 +228,7 @@ class Form extends CI_Controller
         // } else {
         //     $this->session->set_flashdata('msg', '2');
         // };
-        redirect(base_url("form/cetak/".$cetak."/".$no_ktp.""));
+        redirect(base_url("form/cetak/".$cetak."/".$idPerjanjian.""));
 
 
 	}
